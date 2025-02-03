@@ -1,0 +1,130 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Main.master.cs" Inherits="Final_project.Main" %>
+
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+    <title>Master</title>
+    <link rel="icon" type="image/x-icon" href="imagens/favicon.ico" />
+    <link href="content/bootstrap.min.css" rel="stylesheet" />
+    <link
+        rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" />
+    <link rel="stylesheet" href="style/style.css" />
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <form id="form1" runat="server">
+        <header class="bg-dark text-white container-fluid d-flex align-items-center justify-content-between header-master">
+            <img id="logo" src="/imagens/logo.png" alt="" />
+            <img id="logociteforma" src="/imagens/logociteforma.png" alt="" />
+        </header>
+
+        <nav class="navbar navbar-expand sticky-top bg-light d-flex align-content-between justify-content-between nav-master">
+
+            <ul class="navbar-nav">
+                <li class="nav-item homeButton text-center">
+                    <a href="/Main_page.aspx" class="p-2 titulo" id="home"><i class="bi bi-house"></i></a>
+                </li>
+                <li class="nav-item">
+                    <a href="/Search.aspx" class="p-2 ms-4 loginButton" id="search"><i class="bi bi-search"></i>
+                    </a>
+                </li>
+            </ul>
+
+
+
+            <ul class="navbar-nav">
+                <asp:LoginView runat="server">
+                    <LoggedInTemplate>
+                        <li class="nav-item">
+                            <asp:HyperLink
+                                NavigateUrl="~/Utilizadores/Personal_area.aspx"
+                                runat="server"
+                                Text="Área pessoal" CssClass="nav-link" />
+                        </li>
+                        <li class="nav-item">
+                            <asp:HyperLink
+                                NavigateUrl="~/Utilizadores/Edit_profile.aspx"
+                                runat="server"
+                                Text="Editar Perfil" CssClass="nav-link"/>
+                        </li>
+                    </LoggedInTemplate>
+                </asp:LoginView>
+                <li class="nav-item">
+                    <asp:LoginStatus ID="loginStatusUtilizador"
+                        runat="server" CssClass="nav-link" />
+                </li>
+            </ul>
+
+
+        </nav>
+
+        <main class="container-fluid d-flex row justify-content-between align-content-center mt-4 text-center">
+            <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server" />
+        </main>
+
+        <footer class="bg-light text-center text-lg-start mt-3 container-fluid">
+            <div class="row">
+                <div class="col-lg-6 col-md-12 mb-4">
+                    <h4 class="text-uppercase">Aldeias Historicas</h4>
+                    <div class="d-flex align-items-center gap-2">
+                        <img class="logo-portugal"
+                            src="/imagens/esferabnw.png"
+                            alt="" />
+                        <h6>Património Nacional
+                        </h6>
+                    </div>
+                </div>
+
+                <div class="col-lg-3 col-md-6 mb-4">
+                    <h5 class="text-uppercase">Links</h5>
+                    <ul class="mb-0">
+                        <li><a href="/Main_page.aspx" class="text-dark">Página Inicial</a></li>
+                        <li><a href="#" class="text-dark">Sobre</a></li>
+                    </ul>
+                </div>
+
+                <div class="col-lg-3 col-md-6 mb-4">
+                    <h5 class="text-uppercase">Redes Sociais</h5>
+                    <ul class="mb-0 redes-sociais">
+                        <li>
+                            <a
+                                href="https://www.facebook.com/ALDEIASHISTORICASDEPORTUGAL    "
+                                class="text-dark"><i class="bi bi-facebook"></i>Facebook
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://twitter.com/AHistoricasPT" class="text-dark"><i class="bi bi-twitter"></i>Twitter
+                            </a>
+                        </li>
+                        <li>
+                            <a
+                                href="https://www.instagram.com/aldeiashistoricas/"
+                                class="text-dark"><i class="bi bi-instagram"></i>Instagram
+                            </a>
+                        </li>
+                        <li>
+                            <a
+                                href="https://pt.linkedin.com/company/aldeiashistoricasdeportugal"
+                                class="text-dark"><i class="bi bi-linkedin"></i>Linkedin
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="text-center p-3 bg-dark text-white row">
+                <div>
+                    <span>© 2024 Citeforma | Website desenvolvido por </span>
+                    <a href="https://www.linkedin.com/in/cmf0/">Cláudio Fonte</a>
+                </div>
+            </div>
+        </footer>
+
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+        <%--<script src="/Javascript/Script.js"></script>--%>
+    </form>
+</body>
+</html>

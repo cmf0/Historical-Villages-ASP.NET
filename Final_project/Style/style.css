@@ -1,0 +1,56 @@
+﻿/*-------------------------------------------ESTILOS GERAIS DO APP-------------------------------------------*/
+:root {
+    --cor-texto-principal: #444;
+    --cor-background-dark: #212529;
+    --cor-background-light: #f8f9fa;
+}
+*{
+margin: 0;
+padding: 0;
+box-sizing: border-box;
+}
+ul{
+    list-style: none;
+    padding-left: 0px;
+}
+a{
+    text-decoration: none;
+}
+
+body::-webkit-scrollbar {
+    width: 12px; /* width of the entire scrollbar */
+}
+
+body::-webkit-scrollbar-track {
+    background: rgba(0, 0, 0, 0); /* color of the tracking area */
+}
+
+body::-webkit-scrollbar-thumb {
+    background-color: rgba(0, 0, 0, 0.2); /* color of the scroll thumb */
+    border-radius: 20px; /* roundness of the scroll thumb */
+
+}
+
+/*-------------------------------------------ESTILO DA MASTER-------------------------------------------*/
+#logociteforma{
+    max-width: 120px;
+}
+.header-master{
+    padding-block: 24px;
+}
+.nav-master ul li a{
+    color: var(--cor-texto-principal);
+}
+
+footer .logo-portugal {
+    max-width: 120px;
+}
+
+footer{
+    padding: 24px 0px 0px 0px;
+}
+
+footer .redes-sociais li a i{
+    margin-right:6px;
+}
+
