@@ -193,12 +193,24 @@
         var lat = parseFloat('<%= Latitude %>');
         var lng = parseFloat('<%= Longitude %>');
         var nome = '<%= Nome %>';
-        var map = L.map('map').setView([lat, lng], 11);
-        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-            maxZoom: 15
-        }).addTo(map);
-        L.marker([lat, lng]).addTo(map)
-            .bindPopup(nome)
-            .openPopup();
+
+        // Default coordinates for Portugal if lat/lng are invalid
+        if (isNaN(lat) || isNaN(lng)) {
+            lat = 38.7369;  // Latitude for Lisbon, Portugal
+            lng = -9.1427;  // Longitude for Lisbon, Portugal
+            nome = nome || "Portugal"; // Fallback name if 'nome' is empty
+            var map = L.map('map').setView([lat, lng], 6);
+            L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {}).addTo(map);
+        } else {
+            
+            var map = L.map('map').setView([lat, lng], 11);
+            L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                maxZoom: 15
+            }).addTo(map);
+
+            L.marker([lat, lng]).addTo(map)
+                .bindPopup(nome)
+                .openPopup();
+        }        
     </script>
 </asp:Content>

@@ -78,33 +78,6 @@ namespace Final_project.Utilizadores
         protected global::System.Web.UI.WebControls.TextBox textDescricao;
 
         /// <summary>
-        /// ButtonGuardar control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button ButtonGuardar;
-
-        /// <summary>
-        /// Button_cancelar control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button Button_cancelar;
-
-        /// <summary>
-        /// Button_eliminar control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button Button_eliminar;
-
-        /// <summary>
         /// listFotos control.
         /// </summary>
         /// <remarks>
@@ -166,5 +139,32 @@ namespace Final_project.Utilizadores
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button cancel_photo_button;
+
+        /// <summary>
+        /// ButtonGuardar control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button ButtonGuardar;
+
+        /// <summary>
+        /// Button_cancelar control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button Button_cancelar;
+
+        /// <summary>
+        /// Button_eliminar control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button Button_eliminar;
     }
 }

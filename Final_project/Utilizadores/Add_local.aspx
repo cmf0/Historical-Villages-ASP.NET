@@ -7,106 +7,75 @@
 
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 
-    <!-- Page Title -->
-    <h2>Criar Local</h2>
 
-    <!-- Form for adding local details -->
-    <div class="form-group">
-        <label for="text_name">Nome</label>
-        <asp:TextBox ID="text_name" runat="server" CssClass="form-control"></asp:TextBox>
-        <asp:RequiredFieldValidator ErrorMessage="Obrigatório" ControlToValidate="text_name" runat="server" Display="Dynamic" ForeColor="#CC0000" />
-    </div>
+        <h2 class="text-center mb-4">Criar Local</h2>
 
-    <div class="form-group">
-        <label for="text_description">Descrição</label>
-        <asp:TextBox ID="text_description" runat="server" CssClass="form-control"></asp:TextBox>
-    </div>
-
-    <div class="form-group">
-        <label for="text_address">Morada</label>
-        <asp:TextBox ID="text_address" runat="server" CssClass="form-control"></asp:TextBox>
-    </div>
-
-    <div class="form-group">
-        <label for="text_town">Localidade</label>
-        <asp:TextBox ID="text_town" runat="server" CssClass="form-control"></asp:TextBox>
-    </div>
-
-    <div class="form-group">
-        <label for="list_district">Distrito</label>
-        <asp:DropDownList ID="list_district" runat="server" AutoPostBack="true" OnSelectedIndexChanged="listDistrito_SelectedIndexChanged" CssClass="form-control">
-        </asp:DropDownList>
-        <asp:RequiredFieldValidator ErrorMessage="Obrigatório" ControlToValidate="list_district" InitialValue="Selecione um Distrito" runat="server" Display="Dynamic" ForeColor="#CC0000" />
-    </div>
-
-    <div class="form-group">
-        <label for="list_council">Concelho</label>
-        <asp:DropDownList ID="list_council" runat="server" CssClass="form-control"></asp:DropDownList>
-        <asp:RequiredFieldValidator ErrorMessage="Obrigatório" ControlToValidate="list_council" InitialValue="Selecione um Concelho" runat="server" Display="Dynamic" ForeColor="#CC0000" />
-    </div>
-    <br />
-
-    <br />
-    <!-- Photos Section -->
-    <h3>Fotos do Local</h3>
-
-    <asp:DataList ID="list_photos" runat="server" RepeatColumns="2" RepeatDirection="Horizontal" CssClass="row">
-        <ItemTemplate>
+        <div class="row">
             <div class="col-md-6">
-                <table class="table table-borderless">
-                    <tr style="height: 220px; vertical-align: middle;">
-                        <td style="text-align: center;">
-                            <img src='../<%# Eval("Ficheiro") %>' alt='<%# Eval("Legenda") %>' class="img-fluid" />
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <asp:Label Text='<%# Eval("Legenda") %>' runat="server" CssClass="fs-5" />
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <asp:LinkButton ID="lnkDetalhes" runat="server" CommandArgument='<%# Eval("ID") %>' OnCommand="link_details_Command" CssClass="btn btn-info">Selecionar</asp:LinkButton>
-                        </td>
-                    </tr>
-                </table>
+                <div class="mb-3">
+                    <label for="text_name" class="form-label">Nome</label>
+                    <asp:TextBox ID="text_name" runat="server" CssClass="form-control" placeholder="Nome do local"></asp:TextBox>
+                    <asp:RequiredFieldValidator ErrorMessage="Obrigatório" ControlToValidate="text_name" runat="server" Display="Dynamic" ForeColor="#CC0000" />
+                </div>
+
+                <div class="mb-3">
+                    <label for="text_description" class="form-label">Descrição</label>
+                    <asp:TextBox ID="text_description" runat="server" CssClass="form-control" TextMode="MultiLine" Rows="4" placeholder="Descrição detalhada"></asp:TextBox>
+                </div>
+
+                <div class="mb-3">
+                    <label for="text_address" class="form-label">Morada</label>
+                    <asp:TextBox ID="text_address" runat="server" CssClass="form-control" placeholder="Endereço completo"></asp:TextBox>
+                </div>
+
+                <div class="mb-3">
+                    <label for="text_town" class="form-label">Localidade</label>
+                    <asp:TextBox ID="text_town" runat="server" CssClass="form-control" placeholder="Cidade ou vila"></asp:TextBox>
+                </div>
+
+                <div class="mb-3">
+                    <label for="list_district" class="form-label">Distrito</label>
+                    <asp:DropDownList ID="list_district" runat="server" AutoPostBack="true" OnSelectedIndexChanged="listDistrito_SelectedIndexChanged" CssClass="form-select">
+                    </asp:DropDownList>
+                    <asp:RequiredFieldValidator ErrorMessage="Obrigatório" ControlToValidate="list_district" runat="server" Display="Dynamic" ForeColor="#CC0000" />
+                </div>
+
+                <div class="mb-3">
+                    <label for="list_council" class="form-label">Concelho</label>
+                    <asp:DropDownList ID="list_council" runat="server" CssClass="form-select"></asp:DropDownList>
+                    <asp:RequiredFieldValidator ErrorMessage="Obrigatório" ControlToValidate="list_council" runat="server" Display="Dynamic" ForeColor="#CC0000" />
+                </div>
+
+                <div class="mb-3">
+                    <label for="photo_upload" class="form-label">Selecionar Foto</label>
+                    <asp:FileUpload ID="photo_upload" runat="server" CssClass="form-control" />
+                </div>
+
+                <div class="mb-3">
+                    <label for="text_legend" class="form-label">Legenda da Foto</label>
+                    <asp:TextBox ID="text_legend" runat="server" CssClass="form-control" placeholder="Legenda da imagem"></asp:TextBox>
+                </div>
+
+                <div class="d-grid gap-2">
+                    <asp:Button ID="save_photo_button" runat="server" CssClass="btn btn-success" Text="Guardar Foto" OnClick="button_save_photo" />
+                    <asp:Button ID="edit_photo_button" runat="server" CssClass="btn btn-warning" Text="Editar Legenda" OnClick="button_edit_legend" />
+                    <asp:Button ID="eliminate_photo_button" runat="server" CssClass="btn btn-danger" Text="Eliminar Foto" OnClick="button_eliminate_photo" />
+                    <asp:Button ID="cancel_everything_button" runat="server" CssClass="btn btn-secondary" Text="Cancelar Tudo" OnClick="button_cancel" />
+                </div>
             </div>
-        </ItemTemplate>
-    </asp:DataList>
 
-    <!-- File upload section -->
-    <div class="form-group">
-        <label for="photo_upload">Selecionar Foto</label>
-        <asp:FileUpload ID="photo_upload" runat="server" CssClass="form-control-file" />
-    </div>
+            <div class="col-md-6">
+                <h4 class="text-center">Localização no Mapa</h4>
+                <div id="map" class="rounded shadow" style="height: 400px;"></div>
+                <asp:HiddenField ID="latitude" runat="server" />
+                <asp:HiddenField ID="longitude" runat="server" />
+            </div>
+        </div>
 
-    <div class="form-group">
-        <label for="text_legend">Legenda</label>
-        <asp:TextBox ID="text_legend" runat="server" CssClass="form-control"></asp:TextBox>
-    </div>
-    <br />
-    <!-- Photo action buttons -->
-    <div class="form-group">
-        <asp:Button ID="save_photo_button" runat="server" class="btn btn-dark" Text="Guardar Foto" OnClick="button_save_photo" />
-        <asp:Button ID="edit_photo_button" runat="server" class="btn btn-dark" Text="Editar Legenda" OnClick="button_edit_legend" />
-        <asp:Button ID="eliminate_photo_button" runat="server" class="btn btn-dark" Text="Eliminar Foto" OnClick="button_eliminate_photo" />
-        <asp:Button ID="cancel_everything_button" runat="server" class="btn btn-dark" Text="Cancelar Tudo" OnClick="button_cancel" />
-    </div>
-
-    <tr style="height: 600px; vertical-align: middle;">
-        <td style="width: 150px;"></td>
-        <td colspan="3" style="text-align: center;">
-            <div id="map" style="width: 90%; height: 560px"></div>
-            <asp:HiddenField ID="latitude" runat="server" />
-            <asp:HiddenField ID="longitude" runat="server" />
-        </td>
-    </tr>
-
-    <!-- Save and Cancel Buttons -->
-    <div class="form-group">
-        <asp:Button ID="save_button" runat="server" class="btn btn-primary" Text="Guardar" OnClick="button_save_local" />
-        <asp:Button ID="cancel_button" runat="server" class="btn btn-secondary" Text="Cancelar" OnClick="clear_fields" />
-    </div>
+        <div class="text-center mt-4">
+            <asp:Button ID="save_button" runat="server" CssClass="btn btn-primary px-4" Text="Guardar Local" OnClick="button_save_local" />
+            <asp:Button ID="cancel_button" runat="server" CssClass="btn btn-outline-secondary px-4" Text="Cancelar" OnClick="clear_fields" />
+        </div>
 
     <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
     <script>
