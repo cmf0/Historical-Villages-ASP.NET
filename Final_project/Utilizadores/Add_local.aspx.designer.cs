@@ -69,6 +69,15 @@ namespace Final_project.Utilizadores
         protected global::System.Web.UI.WebControls.DropDownList list_council;
 
         /// <summary>
+        /// list_photos control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DataList list_photos;
+
+        /// <summary>
         /// photo_upload control.
         /// </summary>
         /// <remarks>
@@ -94,24 +103,6 @@ namespace Final_project.Utilizadores
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button save_photo_button;
-
-        /// <summary>
-        /// edit_photo_button control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button edit_photo_button;
-
-        /// <summary>
-        /// eliminate_photo_button control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button eliminate_photo_button;
 
         /// <summary>
         /// cancel_everything_button control.

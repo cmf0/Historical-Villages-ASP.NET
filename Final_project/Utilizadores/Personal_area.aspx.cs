@@ -43,8 +43,8 @@ namespace Final_project.Utilizadores
                 reader.Close();
 
                 //mostrar dados no controlo DataList
-                listLocais.DataSource = table;
-                listLocais.DataBind();
+                listLocaisAreaPessoal.DataSource = table;
+                listLocaisAreaPessoal.DataBind();
             }
         }
 

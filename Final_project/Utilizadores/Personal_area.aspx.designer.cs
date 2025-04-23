@@ -15,13 +15,13 @@ namespace Final_project.Utilizadores
     {
 
         /// <summary>
-        /// listLocais control.
+        /// listLocaisAreaPessoal control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DataList listLocais;
+        protected global::System.Web.UI.WebControls.DataList listLocaisAreaPessoal;
 
         /// <summary>
         /// Button1 control.

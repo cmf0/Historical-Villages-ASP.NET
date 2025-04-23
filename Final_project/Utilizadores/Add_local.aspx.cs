@@ -155,6 +155,9 @@ namespace Final_project.Utilizadores
                 {
                     ViewState["idLocal"] = Convert.ToInt32(result);
                     save_photo_button.Enabled = true;
+                    //edit_photo_button.Enabled = true;
+                    //eliminate_photo_button.Enabled = true;
+                    cancel_everything_button.Enabled = true;
                     Response.Write("<script>alert('Local criado com sucesso.');</script>");
                 }
                 else
@@ -399,18 +402,30 @@ namespace Final_project.Utilizadores
 
         protected void clear_fields(object sender, EventArgs e)
         {
-            text_name.Text = string.Empty;
-            text_description.Text = string.Empty;
-            text_address.Text = string.Empty;
-            text_town.Text = string.Empty;
+            // Limpa o campo da legenda
             text_legend.Text = string.Empty;
 
+            // Limpa o controlo de upload de ficheiro
+            // O controlo FileUpload não mantém o ficheiro após o postback,
+            // por isso, para "resetá-lo", podemos recarregar a página parcialmente
+            photo_upload.Attributes.Clear();
 
-            list_council.Items.Clear();
-            list_council.Items.Insert(0, "Escolha um Distrito primeiro");
-            load_distritos();
-            ViewState["idLocal"] = 0;
+            // Limpa o ID da foto do ViewState, caso uma foto estivesse selecionada
+            ViewState["idFoto"] = null;
+        }
 
+        protected void list_photos_ItemCommand(object source, DataListCommandEventArgs e)
+        {
+            if (e.CommandName == "Edit")
+            {
+                ViewState["idFoto"] = e.CommandArgument.ToString();
+                button_edit_legend(this, EventArgs.Empty); // Calls the existing edit method
+            }
+            else if (e.CommandName == "Delete")
+            {
+                ViewState["idFoto"] = e.CommandArgument.ToString();
+                button_eliminate_photo(this, EventArgs.Empty); // Calls the existing delete method
+            }
         }
 
         protected void button_cancel(object sender, EventArgs e)
